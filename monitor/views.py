@@ -50,9 +50,11 @@ def create_data(request):
     try:
         values = request.POST
         username = request.user.username
-        StockPrice.objects.update_or_create(code=values['Code'], name=values["name"], vi2=values["vi2"],
+        StockPrice.objects.update_or_create(code=values['Code'], name=values["name"],
+                                            vi3=values["vi3"], vi2=values["vi2"],
                                             vi1=values["vi1"], v0=values["v0"],
                                             vh1=values["vh1"], vh2=values["vh2"],
+                                            vh3=values["vh3"],
                                             vcur=values["vcur"], username=username)
     except ValueError:
         return HttpResponse("请正确输入！")
@@ -63,7 +65,7 @@ def create_data(request):
 def get_data(request):
     username = request.user.username
     if username == "":
-        username = "bianseyang"
+        username = "nju_hyhb"
     values = StockPrice.objects.filter(username=username)
     data = []
     for v in values.values():

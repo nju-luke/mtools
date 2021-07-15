@@ -80,7 +80,9 @@
             $("#form_submit1").ajaxSubmit(function (data) {
                 alert(data);
             })
-        }py
+        }
+
+        py
 
 
     </script>
@@ -95,43 +97,43 @@
             {% csrf_token %}
             <div class="form-inline">
                 <label for="Code">Code</label>
-                <input type="number" class="form-control" id="Code" name="Code" placeholder="Code">
-
+                <input type="text" class="form-control" id="Code" name="Code" placeholder="Code">
             </div>
             <div class="form-inline">
                 <label for="name">名称</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="名称">
-
             </div>
             <div class="form-inline">
-                <label for="vi2">理想卖点</label>
-                <input type="number" class="form-control" id="vi2" name="vi2" placeholder="理想卖点">
-
+                <label for="vi3">理想买点</label>
+                <input type="number" class="form-control" id="vi3" name="vi3" placeholder="理想买点">
             </div>
             <div class="form-inline">
-                <label for="vi1">次级理想买点</label>
-                <input type="number" class="form-control" id="vi1" name="vi1" placeholder="次级理想买点">
-
+                <label for="vi2">次级低估</label>
+                <input type="number" class="form-control" id="vi2" name="vi2" placeholder="次级低估">
+            </div>
+            <div class="form-inline">
+                <label for="vi1">建仓低估</label>
+                <input type="number" class="form-control" id="vi1" name="vi1" placeholder="建仓低估">
             </div>
             <div class="form-inline">
                 <label for="v0">合理估值</label>
                 <input type="number" class="form-control" id="v0" name="v0" placeholder="合理估值">
-
             </div>
             <div class="form-inline">
-                <label for="vh1">保守高估</label>
-                <input type="number" class="form-control" id="vh1" name="vh1" placeholder="保守高估">
-
+                <label for="vh1">高估</label>
+                <input type="number" class="form-control" id="vh1" name="vh1" placeholder="高估">
             </div>
             <div class="form-inline">
-                <label for="vh2">高估</label>
-                <input type="number" class="form-control" id="vh2" name="vh2" placeholder="高估">
-
+                <label for="vh2">次级高估</label>
+                <input type="number" class="form-control" id="vh2" name="vh2" placeholder="次级高估">
+            </div>
+            <div class="form-inline">
+                <label for="vh3">清仓高估</label>
+                <input type="number" class="form-control" id="vh3" name="vh3" placeholder="清仓高估">
             </div>
             <div class="form-inline">
                 <label for="vcur">当前价格</label>
                 <input type="number" class="form-control" id="vcur" name="vcur" placeholder="当前价格">
-
             </div>
             <button type="button" class="btn btn-primary" id="btn_tj" onClick="doSubmitForm()">提交</button>
         </form>
@@ -139,16 +141,18 @@
 </div>
 <button id="btn1" onClick="btn1_click()">获取数据</button>
 <div class="list-container" id="list-container">
-    <table width="800" border="1"  id="tb-stck-prcs">
+    <table width="800" border="1" id="tb-stck-prcs">
         <thead>
         <tr>
             <th scope="col">代码</th>
             <th scope="col">名称</th>
-            <th scope="col">理想卖点</th>
-            <th scope="col">次级理想买点</th>
+            <th scope="col">理想买点</th>
+            <th scope="col">次级低估</th>
+            <th scope="col">建仓低估</th>
             <th scope="col">合理估值</th>
-            <th scope="col">保守高估</th>
             <th scope="col">高估</th>
+            <th scope="col">次级高估</th>
+            <th scope="col">清仓高估</th>
             <th scope="col">当前价格</th>
             <th scope="col">修改日期</th>
         </tr>
