@@ -15,23 +15,54 @@
 
 
             $.get("../../get_data/", function (result) {
+                {#var content = '';#}
+                {#for (var i = 0; i < result.data.length; i++) {#}
+                {##}
+                {#    content += '        <tr>' +#}
+                {#        '            <td scope="col">' + result.data[i]["code"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["name"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["vi2"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["vi1"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["v0"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["vh1"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["vh2"] + '</th>' +#}
+                {#        '            <td scope="col">' + result.data[i]["vcur"] + '</th>' +#}
+                {#        '        </tr>';#}
+                {# }#}
+                {##}
+                {#document.getElementById("tbody1").innerHTML = content;#}
+
+
                 var content = '';
-                for (var i = 0; i < result.data.length; i++) {
+                var table = $("#tb_idx_1");
 
-                    content += '        <tr>' +
-                        '            <td scope="col">' + result.data[i]["code"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["name"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["vi2"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["vi1"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["v0"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["vh1"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["vh2"] + '</th>' +
-                        '            <td scope="col">' + result.data[i]["vcur"] + '</th>' +
-                        '        </tr>';
+                //删除原有表格数据
+                table.find("tr").each(function (i) {
+                    if (i != 0) {
+                        //表头不删
+                        this.remove();
+                    }
+                });
+
+
+                var data = result.data;
+                for (var i = 0; i < data.length; i++) {
+                    //数据行
+                    var tr = $("<tr>", {
+                        align: "center",
+                        height: "36"
+                    });
+                    //数据列
+                    $.each(data[i], function (key, value) {
+                        var td = $("<td>" + value + "</td>");
+                        td.appendTo(tr);
+                        {#if (key == "column_4") {#}
+                        {#    //这一列的数据，要指定样式#}
+                        {#    td.attr("class", "td2");#}
+                        {# }#}
+                    });
+                    tr.appendTo(table);
                 }
-
-                document.getElementById("tbody1").innerHTML = content;
-
             });
 
         });
@@ -78,17 +109,20 @@
 	
 	
 <div class="list-container" id="list-container">
-    <table width="800" border="1">
+    <table width="800" border="1" id="tb_idx_1">
         <thead>
         <tr>
             <th scope="col">代码</th>
             <th scope="col">名称</th>
-            <th scope="col">理想卖点</th>
-            <th scope="col">次级理想买点</th>
+            <th scope="col">理想买点</th>
+            <th scope="col">次级低估</th>
+            <th scope="col">建仓低估</th>
             <th scope="col">合理估值</th>
-            <th scope="col">保守高估</th>
             <th scope="col">高估</th>
+            <th scope="col">次级高估</th>
+            <th scope="col">清仓高估</th>
             <th scope="col">当前价格</th>
+            <th scope="col">修改日期</th>
         </tr>
         </thead>
         <tbody id="tbody1">
