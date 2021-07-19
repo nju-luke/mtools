@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>无标题文档</title>
-{#    <link rel="stylesheet" href="../static/css/bootstrap-4.4.1.css"/>#}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
     <script type="text/javascript" src="../static/jQueryAssets/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../static/jQueryAssets/jquery.form.js"></script>
-
-
-
-{#    <script type="text/javascript" src="../static/bootstrap-4.4.1.min.js"></script>#}
-{#    <link rel="'stylesheet" href="../static/bootstrap-4.4.1.min.css">#}
-    <script type="text/javascript" src="../static/bootstrap-4.4.1/js/bootstrap.js"></script>
-    <link rel="'stylesheet" href="../static/bootstrap-4.4.1/css/bootstrap.css"/>
+    {#    <script type="text/javascript" src="../static/bootstrap-3.4.1/js/bootstrap.min.js"></script>#}
+    {#    <link rel="'stylesheet" href="../static/bootstrap-3.4.1/css/bootstrap.min.css"/>#}
 
     <script type="text/javascript">
         function btn1_click() {
@@ -43,44 +52,15 @@
                     $.each(data[i], function (key, value) {
                         var td = $("<td>" + value + "</td>");
                         td.appendTo(tr);
-                        {#if (key == "column_4") {#}
-                        {#    //这一列的数据，要指定样式#}
-                        {#    td.attr("class", "td2");#}
-                        {# }#}
+
                     });
                     tr.appendTo(table);
                 }
 
 
-                {#for (var i = 0; i < result.data.length; i++) {#}
-                {#content += '        <tr>' +#}
-                {#    '            <td scope="col">' + result.data[i]["code"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["name"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["vi2"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["vi1"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["v0"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["vh1"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["vh2"] + '</th>' +#}
-                {#    '            <td scope="col">' + result.data[i]["vcur"] + '</th>' +#}
-                {#    '        </tr>';#}
-                {# } #}
-                {#document.getElementById("tbody1").innerHTML = content;#}
-
-
-                {#alter(result);#}
-                {#$("#test1").html(result);#}
             });
 
-//            let tr_ = '<tr>\n';
-//            let elements = ["洋河", 126, 143, 174, 226, 348, 202];
-//            for (const element of elements) {
-//                tr_ += '<td class="cgrade">' + element + '</td>\n'
-//            }
-//            tr_ += "</tr>\n";
 
-
-//  document.getElementById("list-container").append(tr_);
-//            document.getElementById("tbody1").innerHTML += tr_;
         }
 
         function doSubmitForm() {
@@ -90,43 +70,56 @@
         }
 
 
-
     </script>
-	
-	<style type="text/css">
-			/*表格样式*/
-			table {
-				width: 90%;
-				background: #ccc;
-				margin: 10px auto;
-				border-collapse: collapse;/*border-collapse:collapse合并内外边距(去除表格单元格默认的2个像素内外边距*/
-			}
-			th,td {
-				height: 25px;
-				line-height: 25px;
-				text-align: center;
-				border: 1px solid #ccc;
-			}
-			th {
-				background: #eee;
-				font-weight: normal;
-			}
-			tr {
-				background: #fff;
-			}
-			tr:hover {
-				background: #00b0cc;
-			}
-			td a {
-				color: #06f;
-				text-decoration: none;
-			}
-			td a:hover {
-				color: #06f;
-				text-decoration: underline;
-			}
-		</style>
-	
+
+    <style type="text/css">
+        /*表格样式*/
+        table {
+            width: 90%;
+            background: #ccc;
+            margin: 10px auto;
+            border-collapse: collapse; /*border-collapse:collapse合并内外边距(去除表格单元格默认的2个像素内外边距*/
+        }
+
+        th, td {
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #eee;
+            font-weight: normal;
+        }
+
+        tr {
+            background: #fff;
+        }
+
+        tr:hover {
+            background: #00b0cc;
+        }
+
+        td a {
+            color: #06f;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            color: #06f;
+            text-decoration: underline;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+
+            text-align: right;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -181,10 +174,13 @@
     </div>
 </div>
 
-<button id="btn1" onClick="btn1_click()">获取数据</button>
+<br/>
+<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="80%" color=#987cb9 SIZE=10>
+
+<button id="btn1" class="btn btn-success" onClick="btn1_click()">获取数据</button>
 <div class="list-container" id="list-container-prctb">
-    <table  width="800" border="1" id="tb-stck-prcs" >
-		
+    <table width="800" border="1" id="tb-stck-prcs">
+
         <thead>
         <tr>
             <th scope="col">代码</th>
@@ -203,7 +199,7 @@
         <tbody id="tbody1">
         </tbody>
 
-  </table>
+    </table>
 </div>
 
 
