@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票估值页</title>
+    <link rel="stylesheet" href="../static/css/bootstrap-4.4.1.css"/>
+    <script type="text/javascript" src="../static/jQueryAssets/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../static/jQueryAssets/jquery.form.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+
+
+
+            $.get("../../get_data/", function (result) {
+                var content = '';
+                for (var i = 0; i < result.data.length; i++) {
+
+                    content += '        <tr>' +
+                        '            <td scope="col">' + result.data[i]["code"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["name"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["vi2"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["vi1"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["v0"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["vh1"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["vh2"] + '</th>' +
+                        '            <td scope="col">' + result.data[i]["vcur"] + '</th>' +
+                        '        </tr>';
+                }
+
+                document.getElementById("tbody1").innerHTML = content;
+
+            });
+
+        });
+
+        function doSubmitForm() {
+            $("#form_submit1").ajaxSubmit(function (data) {
+                alert(data);
+            })
+        }
+
+
+    </script>
+</head>
+
+<body style="padding-top: 70px">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"> 
+	<a class="navbar-brand" href="/">mtools</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+<!--
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+      <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+      <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> </div>
+      </li>
+      <li class="nav-item"> <a class="nav-link disabled" href="#">Disabled</a> </li>
+    </ul>
+-->
+	  
+<!--
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		
+    </form>
+-->
+	  <a class="mr-sm-2 align-content-end ml-auto" href="/accounts">登录</a>
+  </div>
+</nav>
+	
+	
+<div class="list-container" id="list-container">
+    <table width="800" border="1">
+        <thead>
+        <tr>
+            <th scope="col">代码</th>
+            <th scope="col">名称</th>
+            <th scope="col">理想卖点</th>
+            <th scope="col">次级理想买点</th>
+            <th scope="col">合理估值</th>
+            <th scope="col">保守高估</th>
+            <th scope="col">高估</th>
+            <th scope="col">当前价格</th>
+        </tr>
+        </thead>
+        <tbody id="tbody1">
+        </tbody>
+
+    </table>
+</div>
+
+<div id="test1"></div>
+
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+</body>
+</html>
